@@ -27,7 +27,6 @@ logs/
 .DS_Store
 
 # Firebase Test
-Get-IdToken.ps1
-test.ps1
+*.ps1
 allyscore-test
 

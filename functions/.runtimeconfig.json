@@ -1,0 +1,6 @@
+{
+    "sso": {
+        "database_url": "postgresql://postgres.ycfyyvvmhsjqqmvmcneg:ntaOI6cuV2723LqL@aws-0-us-west-1.pooler.supabase.com:5432/postgres",
+        "jwt_secret": "0Racy49apyt7xw7pvac7jq5ptjHgxVhtJxD777a16kxSEv5hng8xyNkx72djbj2ds3FOs50g5n15GcAkOLiovGKXpiKXzM93FXMyg2j7SAgHKLqk01ob9C4Uvh2qoXVc"
+    }
+}
