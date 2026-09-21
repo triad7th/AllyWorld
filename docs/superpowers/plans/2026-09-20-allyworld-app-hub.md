@@ -24,4 +24,4 @@
 - [x] Build the shared shell, theme, homepage, and a representative app page in scripts/build.py, site_content.py, and assets/site.css; open the meaningful local preview.
 - [x] Generate all product/support/privacy pages, preserve legacy routes, and complete responsive navigation.
 - [x] Add scripts/check_site.py to verify every generated route, local link, asset reference, unique title, app coverage, and legacy routes; build and run it.
-- [ ] Document each app's App Store Connect URLs, save the validated source, and publish the private Sites preview.
+- [x] Document each app's App Store Connect URLs, save the validated source, and publish the private Sites preview.
