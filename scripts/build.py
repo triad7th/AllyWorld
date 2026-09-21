@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Generate a portable, dependency-free static app showcase."""
 from pathlib import Path
-import html, json, os, shutil, sys
+import html, json, os, shutil, struct, sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from site_content import APPS, BY_SLUG, SUPPORT_EMAIL
+from site_content import APPS, BY_SLUG, SUPPORT_EMAIL, SITE_URL, SHARE_IMAGE, SHARE_IMAGE_ALT
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = []
 
@@ -32,11 +32,21 @@ def action(route, app):
 
 def shell(route,title,description,body,active='apps'):
     home=href(route)
+    page_title=f'{title} | AllyWorld' if route else 'AllyWorld | Apps for everyday, music and play'
+    page_url=SITE_URL+(route+'/' if route else '')
+    share_url=SITE_URL+SHARE_IMAGE
+    with (ROOT/SHARE_IMAGE).open('rb') as preview:
+        header=preview.read(24)
+    if header[:8]!=b'\x89PNG\r\n\x1a\n': raise ValueError('Social preview must be a PNG image')
+    share_width,share_height=struct.unpack('>II',header[16:24])
     nav=lambda label,url,key: f'<a href="{url}"'+(' aria-current="page"' if active==key else '')+f'>{label}</a>'
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)} — AllyWorld</title><meta name="description" content="{esc(description)}">
-<meta name="theme-color" content="#ffffff"><meta property="og:title" content="{esc(title)} — AllyWorld"><meta property="og:description" content="{esc(description)}"><meta property="og:type" content="website">
+<title>{esc(page_title)}</title><meta name="description" content="{esc(description)}">
+<meta name="theme-color" content="#ffffff"><link rel="canonical" href="{esc(page_url)}">
+<meta property="og:title" content="{esc(page_title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:type" content="website"><meta property="og:site_name" content="AllyWorld"><meta property="og:locale" content="en_US"><meta property="og:url" content="{esc(page_url)}">
+<meta property="og:image" content="{esc(share_url)}"><meta property="og:image:secure_url" content="{esc(share_url)}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="{share_width}"><meta property="og:image:height" content="{share_height}"><meta property="og:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(page_title)}"><meta name="twitter:description" content="{esc(description)}"><meta name="twitter:image" content="{esc(share_url)}"><meta name="twitter:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
 <link rel="icon" href="{href(route,'assets/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{href(route,'assets/site.css')}">
 </head><body><a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="container header-inner"><a class="wordmark" href="{home}" aria-label="AllyWorld home"><span class="brand-mark" aria-hidden="true">a.</span>AllyWorld</a>

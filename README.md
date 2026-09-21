@@ -21,3 +21,9 @@ The build generates root-level HTML for GitHub Pages and copies only public HTML
 Use the app-specific links in [App Store Connect URLs](docs/app-store-connect-urls.md). The current public origin is `https://triad7th.github.io/AllyWorld/`. Preview URLs are not a replacement for public App Store support or privacy links.
 
 Before publishing a content update, verify store destinations and make sure each privacy page reflects the version being distributed. New launch dates, features, data practices, and prices should not be inferred from development plans.
+
+## Social link previews
+
+The primary sharing address is [allyworld.netlify.app](https://allyworld.netlify.app/). Every page includes its own title and description, an absolute canonical URL, and Open Graph and X large-image card metadata. The shared AllyWorld artwork is `assets/social/allyworld-share-v1.png`. The build reads the image dimensions directly, and the site checker verifies the metadata and packaged image.
+
+See [social preview details](docs/social-preview.md) for the image source, regeneration brief, deployment command, and refreshing cached previews.

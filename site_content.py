@@ -3,6 +3,9 @@ from pathlib import Path
 import json
 
 SUPPORT_EMAIL = 'allyworldchannel@gmail.com'
+SITE_URL = 'https://allyworld.netlify.app/'
+SHARE_IMAGE = 'assets/social/allyworld-share-v1.png'
+SHARE_IMAGE_ALT = 'AllyWorld. Make time for what you love. Everyday tools, music, and games.'
 STORE = json.loads((Path(__file__).parent / 'docs/app-store-sources.json').read_text())
 
 APPS = [
