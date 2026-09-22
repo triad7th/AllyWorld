@@ -27,3 +27,17 @@ Before publishing a content update, verify store destinations and make sure each
 The primary sharing address is [allyworld.netlify.app](https://allyworld.netlify.app/). Every page includes its own title and description, an absolute canonical URL, and Open Graph and X large-image card metadata. The shared AllyWorld artwork is `assets/social/allyworld-share-v1.png`. The build reads the image dimensions directly, and the site checker verifies the metadata and packaged image.
 
 See [social preview details](docs/social-preview.md) for the image source, regeneration brief, deployment command, and refreshing cached previews.
+
+## Website analytics
+
+Every page uses Umami Cloud with the existing shared [AllyWorld Apps property](https://cloud.umami.is/analytics/us/websites/09974c1b-f7d4-43a1-9404-d50a40210e16). Filter by **Host** in Umami to separate `allyworld.netlify.app` from the other Ally apps. The GitHub Pages mirror is recorded under `triad7th.github.io`, with page paths starting with `/AllyWorld/`.
+
+The public website ID and allowed production hostnames are configured in `site_content.py`. The deferred tracker is included by the shared page template. Its `data-domains` allowlist excludes localhost, Netlify deploy previews, and the private Sites preview. The site checker verifies the tracker on all 35 generated pages. Website privacy notices disclose the analytics data collected; Umami’s tracker does not use cookies.
+
+Build and check before publishing, then deploy the public-only directory to the linked Netlify project:
+
+```bash
+npx --yes netlify-cli deploy --dir dist --no-build --prod
+```
+
+After deployment, visit the public site and check **Realtime** in Umami for the corresponding host and page. Ad blockers or a local Umami opt-out can prevent a test visit from being recorded. See the official [tracker configuration](https://docs.umami.is/docs/tracker-configuration) and [data practices](https://docs.umami.is/docs/faq).

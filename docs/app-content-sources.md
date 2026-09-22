@@ -12,4 +12,6 @@ Verified September 20, 2026.
 - AllyPiano privacy: existing sibling `apps/web/src/app/pages/privacy.component.ts`.
 - Support contact: existing AllyWorld support and privacy pages.
 
-The promotional website sets no cookies and includes no analytics or advertising code. App-specific privacy descriptions distinguish local records, optional Google Drive authentication/storage, and external App Store/TestFlight/itch.io services. No wellness outcome, rating, testimonial, or download-count claims are made.
+Website analytics updated September 21, 2026: the promotional website uses Umami Cloud with the shared AllyWorld Apps property, matching the tracker in the sibling AllyClock, AllyPiano, and AllyScore web entry points. Tracking is limited to `allyworld.netlify.app` and the public `triad7th.github.io` mirror. The website privacy disclosure reflects the [data listed in Umami’s FAQ](https://docs.umami.is/docs/faq), including page views, referring URLs, browser/device information, and approximate location. Umami’s tracker does not use cookies; the website includes no advertising code.
+
+App-specific privacy descriptions distinguish local records, optional Google Drive authentication/storage, and external App Store/TestFlight/itch.io services. No wellness outcome, rating, testimonial, or download-count claims are made.

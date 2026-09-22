@@ -3,9 +3,10 @@
 from pathlib import Path
 import html, json, os, shutil, struct, sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from site_content import APPS, BY_SLUG, SUPPORT_EMAIL, SITE_URL, SHARE_IMAGE, SHARE_IMAGE_ALT
+from site_content import APPS, BY_SLUG, SUPPORT_EMAIL, SITE_URL, SHARE_IMAGE, SHARE_IMAGE_ALT, UMAMI_WEBSITE_ID, UMAMI_DOMAINS
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = []
+WEBSITE_ANALYTICS_NOTICE = '<p>We use Umami Cloud to understand visits to the AllyWorld promotional website. It records page views, referring URLs, browser and device information, and approximate location. Umami’s analytics tracker does not use cookies. This website does not include advertising. See <a href="https://docs.umami.is/docs/faq">Umami’s data practices</a> for more information.</p>'
 
 def esc(value): return html.escape(str(value), quote=True)
 def href(route, target=''):
@@ -48,6 +49,7 @@ def shell(route,title,description,body,active='apps'):
 <meta property="og:image" content="{esc(share_url)}"><meta property="og:image:secure_url" content="{esc(share_url)}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="{share_width}"><meta property="og:image:height" content="{share_height}"><meta property="og:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(page_title)}"><meta name="twitter:description" content="{esc(description)}"><meta name="twitter:image" content="{esc(share_url)}"><meta name="twitter:image:alt" content="{esc(SHARE_IMAGE_ALT)}">
 <link rel="icon" href="{href(route,'assets/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{href(route,'assets/site.css')}">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="{esc(UMAMI_WEBSITE_ID)}" data-domains="{esc(UMAMI_DOMAINS)}"></script>
 </head><body><a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="container header-inner"><a class="wordmark" href="{home}" aria-label="AllyWorld home"><span class="brand-mark" aria-hidden="true">a.</span>AllyWorld</a>
 <nav aria-label="Main navigation">{nav('Our apps',home+'#apps','apps')}{nav('Support',href(route,'support'),'support')}{nav('About',home+'#about','about')}</nav><a class="header-contact" href="mailto:{SUPPORT_EMAIL}">Say hello <span aria-hidden="true">↗</span></a></div></header>
@@ -100,7 +102,7 @@ def privacy_page(app, route=None):
         external+='<p>Google processes information used by the optional Drive connection under <a href="https://policies.google.com/privacy">Google’s privacy policy</a>. You can manage connections in your Google Account.</p>'
     if app['slug']=='alexfighters':
         external+='<p>See <a href="https://itch.io/docs/legal/privacy-policy">itch.io’s privacy policy</a> for information about the service hosting the web demo.</p>'
-    body=f'<div class="container breadcrumb"><a href="{href(route,app["slug"])}">{app["name"]}</a><span aria-hidden="true">/</span>Privacy</div><article class="document"><p class="eyebrow">YOUR INFORMATION</p><h1>{app["name"]} privacy policy</h1><p class="document-date">Effective September 20, 2026</p><p>This policy describes how {app["name"]}, published by AllyWorld, handles information in its current app or preview.</p>{sections}<h2>Support messages</h2><p>If you contact us, we receive your email address and the information you choose to send. We use it to respond to your request and understand the issue. Contact us if you want us to remove your support correspondence, subject to any applicable retention obligations.</p><h2>Platforms and external services</h2>{external}<p>When you visit this website or a web app, its hosting provider processes the requests needed to deliver the page, which can include an IP address, requested address, and browser information. This is separate from locally stored app records. The AllyWorld promotional site does not use analytics, advertising, or tracking cookies.</p><h2>Changes and contact</h2><p>We update this page and its effective date when these practices change. For questions about privacy, email <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>.</p><p><a href="{href(route,app["slug"]+"/support")}">{app["name"]} support</a> · <a href="{href(route,"privacy")}">All app privacy policies</a></p></article>'
+    body=f'<div class="container breadcrumb"><a href="{href(route,app["slug"])}">{app["name"]}</a><span aria-hidden="true">/</span>Privacy</div><article class="document"><p class="eyebrow">YOUR INFORMATION</p><h1>{app["name"]} privacy policy</h1><p class="document-date">Effective September 21, 2026</p><p>This policy describes how {app["name"]}, published by AllyWorld, handles information in its current app or preview.</p>{sections}<h2>Support messages</h2><p>If you contact us, we receive your email address and the information you choose to send. We use it to respond to your request and understand the issue. Contact us if you want us to remove your support correspondence, subject to any applicable retention obligations.</p><h2>Platforms and external services</h2>{external}<p>When you visit this website or a web app, its hosting provider processes the requests needed to deliver the page, which can include an IP address, requested address, and browser information. This is separate from locally stored app records.</p><h2>Website analytics</h2>{WEBSITE_ANALYTICS_NOTICE}<h2>Changes and contact</h2><p>We update this page and its effective date when these practices change. For questions about privacy, email <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>.</p><p><a href="{href(route,app["slug"]+"/support")}">{app["name"]} support</a> · <a href="{href(route,"privacy")}">All app privacy policies</a></p></article>'
     return shell(route,app['name']+' Privacy Policy','Privacy practices, local storage, external services, and contact information for '+app['name']+'.',body,'privacy')
 
 def index_page(kind):
@@ -110,7 +112,7 @@ def index_page(kind):
     items=''.join(f'<a class="support-item" href="{href(route,a["slug"]+"/"+kind)}">{icon(route,a)}<div><h2>{a["name"]}</h2><p>{"Help & contact" if is_support else "Privacy policy"}</p></div><span aria-hidden="true">↗</span></a>' for a in APPS)
     body=f'<section class="container support-index"><p class="eyebrow">ALLYWORLD {kind.upper()}</p><h1>{title}</h1><p>{subtitle}</p><div class="support-list">{items}</div><div class="contact-box"><h2>Something else on your mind?</h2><p>Reach us at <a class="text-link" href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>.</p></div></section>'
     if not is_support:
-        body+='<article class="document"><h2>About this website</h2><p>The AllyWorld promotional site does not use advertising, analytics, or tracking cookies. Pages and images are served by the hosting provider, which handles ordinary web requests. External App Store, web-app, and game-demo links take you to services with their own privacy practices.</p></article>'
+        body+=f'<article class="document"><h2>About this website</h2><p class="document-date">Effective September 21, 2026</p>{WEBSITE_ANALYTICS_NOTICE}<p>Pages and images are served by the hosting provider, which handles ordinary web requests. External App Store, web-app, and game-demo links take you to services with their own privacy practices.</p></article>'
     return shell(route,'Support' if is_support else 'Privacy',subtitle,body,kind)
 
 def build():

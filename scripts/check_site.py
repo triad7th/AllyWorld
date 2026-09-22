@@ -7,7 +7,7 @@ import json, struct, sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from site_content import SITE_URL, SHARE_IMAGE, SHARE_IMAGE_ALT
+from site_content import SITE_URL, SHARE_IMAGE, SHARE_IMAGE_ALT, UMAMI_WEBSITE_ID, UMAMI_DOMAINS
 PUBLIC = ROOT/'dist'
 EXPECTED = {'allyfast','allyfastlite','allymetronome','allymetronomelite','allyclock','allypiano','allystation','alexfighters','allyscore','allyscores'}
 LEGACY = {'customer-support/index.html','privacy-policy/index.html','allymetronomelite/support/index.html','allymetronomelite/privacy/index.html'}
@@ -15,10 +15,12 @@ LEGACY = {'customer-support/index.html','privacy-policy/index.html','allymetrono
 class Page(HTMLParser):
     def __init__(self):
         super().__init__();self.refs=[];self.ids=[];self.h1=0;self.main=0;self.title='';self.in_title=False;self.description='';self.missing_alt=0;self.lang=None
-        self.in_head=False;self.meta={};self.canonical=[]
+        self.in_head=False;self.meta={};self.canonical=[];self.analytics=[]
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if tag=='head': self.in_head=True
+        if tag=='script' and (a.get('src')=='https://cloud.umami.is/script.js' or 'data-website-id' in a):
+            self.analytics.append((self.in_head,a))
         if tag=='meta' and self.in_head:
             key=a.get('property') or a.get('name')
             self.meta.setdefault(key,[]).append(a.get('content',''))
@@ -63,6 +65,8 @@ def check():
         page_url=SITE_URL+name.removesuffix('index.html')
         share_url=SITE_URL+SHARE_IMAGE
         if page.canonical!=[page_url]: errors.append(f'{name}: incorrect canonical URL')
+        expected_analytics={'defer':None,'src':'https://cloud.umami.is/script.js','data-website-id':UMAMI_WEBSITE_ID,'data-domains':UMAMI_DOMAINS}
+        if page.analytics!=[(True,expected_analytics)]: errors.append(f'{name}: expected one deferred Umami tracker in head with production domains')
         social={'og:title':page.title,'og:description':page.description,'og:type':'website','og:site_name':'AllyWorld','og:locale':'en_US','og:url':page_url,'og:image':share_url,'og:image:secure_url':share_url,'og:image:type':'image/png','og:image:alt':SHARE_IMAGE_ALT,'twitter:card':'summary_large_image','twitter:title':page.title,'twitter:description':page.description,'twitter:image':share_url,'twitter:image:alt':SHARE_IMAGE_ALT}
         if share_size: social.update({'og:image:width':str(share_size[0]),'og:image:height':str(share_size[1])})
         for key,value in social.items():
@@ -94,7 +98,7 @@ def check():
             errors.append(f'Unexpected source/config in public output: {path.relative_to(PUBLIC)}')
     if errors:
         print('\n'.join(errors));return 1
-    print(f'PASS: {len(paths)} pages, {links} local references, ten complete app page sets, social previews, metadata, accessible landmarks, legacy routes, and public-only packaging.')
+    print(f'PASS: {len(paths)} pages, {links} local references, ten complete app page sets, social previews, Umami tracking, metadata, accessible landmarks, legacy routes, and public-only packaging.')
     print(f'{len(external)} external HTTPS destinations found.')
     return 0
 if __name__=='__main__':sys.exit(check())

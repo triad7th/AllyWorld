@@ -4,6 +4,8 @@ import json
 
 SUPPORT_EMAIL = 'allyworldchannel@gmail.com'
 SITE_URL = 'https://allyworld.netlify.app/'
+UMAMI_WEBSITE_ID = '09974c1b-f7d4-43a1-9404-d50a40210e16'
+UMAMI_DOMAINS = 'allyworld.netlify.app,triad7th.github.io'
 SHARE_IMAGE = 'assets/social/allyworld-share-v1.png'
 SHARE_IMAGE_ALT = 'AllyWorld. Make time for what you love. Everyday tools, music, and games.'
 STORE = json.loads((Path(__file__).parent / 'docs/app-store-sources.json').read_text())
