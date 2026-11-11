@@ -72,7 +72,7 @@ def home():
 def app_page(app):
     route=app['slug']; media=''
     if app['screens']:
-        media='<div class="product-gallery">'+''.join(f'<figure>{image(route,s,app["name"]+" screenshot "+str(i+1),"product-screen",i==0)}<figcaption>{"App preview" if app["slug"] in ["allyscore","allyscores"] else "From the app"}</figcaption></figure>' for i,s in enumerate(app['screens']))+'</div>'
+        media='<div class="product-gallery">'+''.join(f'<figure>{image(route,s,app["name"]+" screenshot "+str(i+1),"product-screen",i==0)}<figcaption>{"App preview" if app["slug"] in ["allyscore","allyscores"] else "From the web demo" if app["slug"]=="alexfighters" else "From the app"}</figcaption></figure>' for i,s in enumerate(app['screens']))+'</div>'
     else: media=f'<div class="game-art" style="--app-tint:{app["tint"]}">{image(route,app["icon"],app["name"]+" artwork","",True)}<span>In development</span></div>'
     features=''.join(f'<article><span class="feature-number">0{i+1}</span><h3>{esc(h)}</h3><p>{esc(p)}</p></article>' for i,(h,p) in enumerate(app['features']))
     related=''
