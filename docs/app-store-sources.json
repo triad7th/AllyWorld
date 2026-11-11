@@ -787,8 +787,8 @@
   "allypiano": {
     "trackName": "AllyPiano",
     "trackViewUrl": "https://apps.apple.com/us/app/allypiano/id6788947949?uo=4",
-    "description": "Play a full 88-key keyboard on your iPhone or iPad. Grand Piano brings the sound of a sampled piano, while Midnight adds a glowing synth keyboard with warm, detuned voices. Both instruments are included.\n\nFor an expressive concert piano, unlock Salamander Grand with a one-time in-app purchase. It includes four recorded velocity layers and the Ivory Concert appearance, with detailed piano sound and sculpted ivory and ebony keys.\n\nPlay chords, glide between notes, and latch the sustain pedal. Slide the rail to travel the keyboard, or center it on a note. Adjust key size and note labels to fit your hands. Your settings are remembered.\n\nFEATURES\n• Full 88-key range, A0 to C8\n• Grand Piano and Midnight included\n• Optional Salamander Grand and Ivory Concert unlock\n• Multi-touch chords and glissando\n• Sustain pedal latch\n• Adjustable key size, centered note, and labels\n• Bundled sounds for offline playing after ownership is verified\n• Restore Purchases with your App Store account\n• No subscriptions or additional app account\n\nMade for iPhone and iPad in landscape. Purchasing and restoring require access to the App Store.",
-    "version": "1.1",
+    "description": "Play a full 88-key keyboard on your iPhone or iPad. Grand Piano brings the sound of a sampled piano, while Midnight adds a glowing synth keyboard with warm, detuned voices. Both instruments are included.\n\nFor an expressive concert piano, unlock Salamander Grand with a one-time in-app purchase. It includes four recorded velocity layers and the Ivory Concert appearance, with detailed piano sound and sculpted ivory and ebony keys.\n\nPlay chords, glide between notes, and latch the sustain pedal. Slide the rail to travel the keyboard, or center it on a note. Transpose up or down by up to an octave to play in any key with the same fingering. Adjust key size and note labels to fit your hands. Your settings are remembered.\n\nFEATURES\n• Full 88-key range, A0 to C8\n• Grand Piano and Midnight included\n• Optional Salamander Grand and Ivory Concert unlock\n• Multi-touch chords and glissando\n• Sustain pedal latch\n• Transpose from −12 to +12 semitones\n• Adjustable key size, centered note, and labels\n• Bundled sounds for offline playing after ownership is verified\n• Restore Purchases with your App Store account\n• No subscriptions or additional app account\n\nMade for iPhone and iPad in landscape. Purchasing and restoring require access to the App Store.",
+    "version": "1.2",
     "minimumOsVersion": "26.0",
     "supportedDevices": [
       "iPhone5s-iPhone5s",
@@ -923,26 +923,26 @@
       "iPhoneDuo-iPhoneDuo"
     ],
     "screenshotUrls": [
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2d/6b/44/2d6b44f0-ba1b-6464-ae2d-a6b22144c94a/iphone69-grand.png/320x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2c/3d/58/2c3d5840-5067-a8cf-5691-92cbe1164337/iphone69-midnight.png/320x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a0/9a/bd/a09abd5d-e926-ef57-b262-94292b50f854/iphone69-instrument.png/320x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/39/d4/1e/39d41ec9-09d5-b936-d0f2-99d3eba73106/iphone69-adjust.png/320x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fd/cf/1f/fdcf1fe6-f1db-7bc3-b813-498b5cfeec3d/iphone69-salamander-keyboard.png/320x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f8/77/4c/f8774ced-f40c-8290-a781-58eb5b531796/iphone69-salamander-unlocked.png/320x480bb.jpg"
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7c/39/ab/7c39abcc-c1a5-1824-7c4c-14d5f7c60ab3/iphone69-grand.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ad/d2/dc/add2dc2f-038d-396a-6146-eb5e1c53b598/iphone69-midnight.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/82/6a/27/826a2742-28c7-97c0-1e0b-6e67584d8d34/iphone69-instrument.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/77/a3/3b/77a33be1-e7bc-94c1-b38c-752eef8f0f1a/iphone69-adjust.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6c/58/f2/6c58f281-11a5-f643-024c-88a165826da9/iphone69-salamander-keyboard.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/63/25/c7/6325c781-8a6c-2221-4e2f-bb8813db5483/iphone69-salamander-unlocked.png/320x480bb.jpg"
     ],
     "ipadScreenshotUrls": [
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2f/ef/2b/2fef2b84-3411-4452-7b1d-ae2e18e3e5ed/ipad13-grand.png/360x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6b/13/2b/6b132ba7-42fa-7f6c-1c70-de829e14b40d/ipad13-midnight.png/360x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d0/b1/c8/d0b1c8cd-91ff-0885-8bd8-e065052c7a3f/ipad13-instrument.png/360x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/48/56/c9/4856c9ed-b7f7-e86a-e7ba-0adc6b0cbcb4/ipad13-adjust.png/360x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/45/51/14/4551143b-7653-fd7b-171e-17da2c4ef2a0/ipad13-salamander-keyboard.png/360x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/66/a9/6a/66a96ae9-2439-07ad-2c17-02066872f19d/ipad13-salamander-unlocked.png/360x480bb.jpg"
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0b/9c/7b/0b9c7bc4-5e9b-d774-a800-c6971fada646/ipad13-grand.png/360x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4b/7b/9a/4b7b9af4-549e-d55b-a460-3f274062f8a9/ipad13-midnight.png/360x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0d/71/96/0d71968b-1b9c-f8dc-6b2c-863188ecdc20/ipad13-instrument.png/360x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/be/68/d5/be68d5f0-92c6-1d1a-af41-d74cb9d4af5c/ipad13-adjust.png/360x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1b/e4/ee/1be4ee5d-a837-7626-ea9b-0503497dd893/ipad13-salamander-keyboard.png/360x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/13/32/36/13323666-2403-069c-adbd-3f223b6f85ef/ipad13-salamander-unlocked.png/360x480bb.jpg"
     ],
-    "artworkUrl512": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/09/a9/c4/09a9c4d8-9189-7f0e-0f8e-137821db5be8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+    "artworkUrl512": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b8/da/32/b8da329b-5041-e7f9-cb6c-861fc67c739a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
     "icon": "assets/apps/allypiano/icon.jpg",
     "screen-1": "assets/apps/allypiano/screen-1.jpg",
     "screen-2": "assets/apps/allypiano/screen-2.jpg",
-    "screen-1-source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2d/6b/44/2d6b44f0-ba1b-6464-ae2d-a6b22144c94a/iphone69-grand.png/1280x1920bb.jpg",
-    "screen-2-source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fd/cf/1f/fdcf1fe6-f1db-7bc3-b813-498b5cfeec3d/iphone69-salamander-keyboard.png/1280x1920bb.jpg"
+    "screen-1-source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7c/39/ab/7c39abcc-c1a5-1824-7c4c-14d5f7c60ab3/iphone69-grand.png/1280x1920bb.jpg",
+    "screen-2-source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6c/58/f2/6c58f281-11a5-f643-024c-88a165826da9/iphone69-salamander-keyboard.png/1280x1920bb.jpg"
   }
 }
