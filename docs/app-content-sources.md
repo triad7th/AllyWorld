@@ -26,3 +26,13 @@ Each change was checked against what users can get today, not against developmen
 - AllyStation: no public download. TestFlight builds include the warmup and Mommy rescue. The Brother rescue (#129) is still in progress and is not promised.
 - Web-app analytics: the live AllyClock, AllyPiano, AllyScore, and AllyScores web apps load the shared Umami Cloud tracker. Their privacy sections now disclose it. Before this refresh, AllyClock and AllyPiano wrongly said they had no analytics. The iOS apps contain no analytics code.
 - AllyFast, AllyFastLite, AllyMetronome, AllyMetronomeLite, and AllyClock: Apple lookup versions, screenshots, and descriptions are unchanged.
+
+## November 10, 2026 refresh
+
+Production was last deployed September 22, 2026 (Netlify deploy `6ab1dadbc7ef3bb3dc3a4df7`), so this publish also carries the October 11 refresh. Each change below was checked against a public release:
+
+- AllyPiano: App Store version 1.2 (released October 16, 2026) and the web deploy of October 13 (`41e391b`) add Transpose (−12 to +12 semitones). The store record was refreshed from the Apple Lookup API. Apple re-uploaded the screenshots and icon, but their content is unchanged.
+- AlexFighters: the itch.io build of October 12, 2026 (`d468284`) includes the HD art pass (#201/#202) and the Demo 3 work (#205): arcade-style lower HUD, charge gauge, heavier explosions, new player shot sound. The screenshot `assets/apps/alexfighters/screen-1.jpg` was captured from that live build (`html.itch.zone/html/18298395-2110355/`) in headless Chrome, during the demo's own autoplay, at 540×960 CSS pixels. The level editor and stage 2 work (#208–#237) is not deployed and is not described.
+- AllyScore/AllyScores: deployed through November 11, 2026 (`1890dfba`). The new public-facing features are ottava lines (#456), glissando lines (#457), book duplication (#462), newest-first reader ordering (#463), the bundled Korean text font (#472), and iPad reader gestures (#469).
+- AllyStation: Acts II and III (#129, #136) complete the Brother and Sister rescues in TestFlight builds. There is still no public download.
+- AllyFast, AllyFastLite, AllyMetronome, AllyMetronomeLite, and AllyClock: Apple lookup versions, screenshots, and descriptions are unchanged. Their repositories have no product changes.
